@@ -1,0 +1,501 @@
+<!doctype html>
+
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>List</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="css/jquery.list.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/agate.css">
+	
+</head>
+
+<body>
+
+	<div id="toc">
+		<p>Содержание:</p>
+		<a id="link1" href="#installation" title="H2">Быстрый старт</a>
+		<a id="link2" href="#options" title="H2">Опции</a>
+		<a id="link2" href="#methods" title="H2">Методы</a>
+		<a id="link3" href="#setup-js-param" title="H2">Формирование списка JS-параметром</a>
+		<a id="link5" href="#controls" title="H2">Элементы управления</a>
+		<a id="link6" href="#styled" title="H2">Вариант стилизации</a>
+		<a id="link6" href="#compatibility" title="H2">Совместимость</a>
+	</div>
+
+	
+	<div id="content">
+
+		<h1>List</h1>
+		
+
+		
+		
+		
+		
+		<!--	Быстрый старт		-->
+		
+		<h2 id="installation">Быстрый старт</h2>
+		
+		<p>Скачайте файлы:</p>
+		<ul>
+			<li><a href="js/jquery.list.js">jquery.list.js</a></li>
+			<li><a href="css/jquery.list.css">jquery.list.css</a></li>
+			<li>jQuery откуда-нибудь</li>
+		</ul>
+		
+		<p>И подключите их в своём проекте:<p/>
+		<pre>
+			<code class="html">
+&lt;link rel="stylesheet" href="css/jquery.list.css"&gt;
+&lt;script src="js/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.list.js"&gt;&lt;/script&gt;		
+			</code>
+		</pre>	
+		
+		<p>HTML разметка (предварительно сортировать необязательно):<p/>
+		<pre>
+			<code class="html">
+&lt;div id="contacts-html" class="list"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Владилен Ягупов&lt;/li&gt; 
+    &lt;li&gt;Игорь Чернаков&lt;/li&gt; 
+    &lt;li&gt;Алина Аргамакова&lt;/li&gt; 
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;	
+			</code>
+		</pre>	
+		
+		<p>Пример настройки списка:<p/>
+		<pre>
+			<code class="js">
+$("#contacts-controls").list(
+  {
+    withControls: 1,  //  Используем элементы управления
+    compareBy: 2  //  Сортировка по второму слову
+  }
+);		
+			</code>
+		</pre>	
+
+		<div class="sorting" list="contacts-controls">
+			<div class="sortingLabel">Сортировка</div>
+			<select class="sortingSelect">
+				<option value=1>Первое слово</option>
+				<option value=2>Второе слово</option>
+			</select>
+		</div>			
+
+		<div class="filter" list="contacts-controls">
+			<div class="filterLabel">Фильтр</div>
+			<div class="filterText" contenteditable="true"></div>
+		</div>			
+		
+		<div class="newItem" list="contacts-controls">
+			<div class="newItemInput" contenteditable="true"></div>
+			<a class="newItemBtn" href="#">Добавить</a>
+		</div>				
+		
+		<p>Чтобы <strong>удалить</strong> элемент, наведите на него курсор &ndash; появится крестик.</p>		
+		<p>Нажмите на букву-подзаголовок, чтобы <strong>свернуть/развернуть</strong> группу.</p>		
+		
+		<div id="contacts-controls" class="list">
+			<ul>
+				<li>Владилен Ягупов</li> 
+				<li>Игорь Чернаков</li> 
+				<li>Алина Аргамакова</li> 
+				<li>Маргарита Габулова</li> 
+				<li>Арина Швецова</li> 
+				<li>Ирина Масмеха</li> 
+				<li>Тамара Липина</li> 
+				<li>Потап Насонов</li> 
+				<li>Светлана Чибисова</li> 
+				<li>Альбина Завьялова</li>
+				<li>Герман Батурин</li> 
+				<li>Елисей Ямилов</li> 
+				<li>Всеслава Ерхова</li> 
+				<li>Раиса Солодскиха</li> 
+				<li>Ипполит Эпингер</li> 
+				<li>Семён Бандуркин</li> 
+				<li>Викентий Кольцов</li> 
+				<li>Артём Чиграков</li> 
+				<li>Валерий Клюшников</li> 
+				<li>Клара Архаткина</li> 
+				<li>Тихон Шастин</li> 
+				<li>Герасим Шурша</li> 
+				<li>Владислав Выгузов</li>
+				<li>Никита Конников</li> 
+				<li>Всеслава Шипицина</li> 
+				<li>Никанор Винтухов</li> 
+				<li>Филимон Чичваркин</li> 
+				<li>Оксана Семенова</li> 
+				<li>Роман Распутин</li> 
+				<li>Римма Экономова</li> 
+				<li>Тамара Манторова</li> 
+				<li>Бронислав Авилов</li> 
+				<li>Любава Гуськова</li> 
+				<li>Яна Мячикова</li> 
+				<li>Юрий Шерстов</li> 
+				<li>Радислав Зонов</li> 
+				<li>Оксана Новичкова</li> 
+				<li>Валерия Каменчука</li> 
+				<li>Изольда Висенина</li> 
+				<li>Порфирий Изотов</li>
+			</ul>
+			
+		</div>
+
+
+
+		
+		
+		
+		<!--	Опции		-->
+		
+		
+
+
+		<h2 id="options">Опции</h2>
+		
+		<h3>compareBy</h4>
+		<p>Тип: <code>Number</code></p>
+		<p>По-умолчанию: <code>2</code></p>
+		<p>Выбор элемента для сортировки</p>
+		<hr>
+		
+		<h3>withControls</h4>
+		<p>Тип: <code>Number</code></p>
+		<p>По-умолчанию: <code>0</code></p>
+		<p>Установите 1 &ndash;  использовать элементы управления, 0 &ndash;  не использовать</p>
+		<hr>
+		
+		<h3>items</h4>
+		<p>Тип: <code>Array</code></p>
+		<p>По-умолчанию: <code>[]</code></p>
+		<p>Массив элементов списка</p>		
+		<hr>
+		
+		<h3>Пример:</h3>
+		<pre>
+			<code class="js">
+$("#contacts").list(
+{
+  compareBy: 1,  //  сортируем по первому слову
+  items: [       //  элементы
+    'Экель Максим', 
+    'Шабунин Алексей', 
+    'Беленков Семен', 
+    ...
+  ],
+  withControls: 1   //  используем элементы управления
+});
+			</code>
+		</pre>			
+
+
+
+
+		
+		
+		
+		<!--	Методы		-->
+		
+		
+
+
+		<h2 id="methods">Методы</h2>
+		
+		<h3>AddNewItem</h4>
+		<p>Параметр: <code>String</code></p>
+		<p>По-умолчанию: <code>нет</code></p>
+		<p>Добавление элемента в список</p>
+		<hr>
+		
+		<h3>RemoveItem</h4>
+		<p>Параметр: <code>String</code></p>
+		<p>По-умолчанию: <code>нет</code></p>
+		<p>Удаление элемента из списка</p>
+		<hr>
+		
+		<h3>Filter</h4>
+		<p>Параметр: <code>String</code></p>
+		<p>По-умолчанию: <code>нет</code></p>
+		<p>Применить фильтр</p>
+		<hr>
+		
+		<h3>ChangeSorting</h4>
+		<p>Параметр: <code>Number</code></p>
+		<p>По-умолчанию: <code>нет</code></p>
+		<p>Поменять элемент для сортировки</p>
+		<hr>
+		
+		<h3>Пример:</h3>
+		<pre>
+			<code class="js">
+$("#contacts").list.AddNewItem('Алиева Светлана');  //  добавляем элемент
+$("#contacts").list.RemoveItem('Баринова Анна');  //  удаляем элемент
+$("#contacts").list.Filter('а');  // фильтруем
+$("#contacts").list.ChangeSorting(2);  //  меняем элемент для сортировки
+			</code>
+		</pre>			
+
+		
+
+
+		
+		
+		
+
+		<!--	Формирование списка JS-параметром		-->
+
+		
+		
+
+
+		<h2 id="setup-js-param">Формирование списка JS-параметром</h2>
+		
+		<p>Ранее было показано как задать список HTML разметкой.</p>
+		<p>Второй способ &ndash; создаём пустой HTML-контейнер (можно и не пустой &ndash; элементы заданные обоими способовами "сложатся" в один список):</p>
+		<pre>
+			<code class="html">
+&lt;div id="contacts-js-param" class="list"&gt;&lt;/div&gt;
+			</code>
+		</pre>		
+		
+		<p>JavaScript (передаём массив <code>items</code>):</p>
+		<pre>
+			<code class="js">
+$("#contacts-js-param").list(
+{
+  compareBy: 1,
+  items: [
+    'Экель Максим', 
+    'Шабунин Алексей', 
+    'Беленков Семен', 
+    ...
+  ]
+});
+			</code>
+		</pre>	
+
+		<div id="contacts-js-param" class="list"></div>
+		
+	
+
+	
+	
+		<!--	Стилизация		-->
+		
+		
+		
+		<h2 id="controls">Элементы управления</h2>	
+
+		<p>Можно настроить элементы управления:</p>
+		<ul>
+			<li>добавление элемента</li>
+			<li>удаление элемента</li>
+			<li>вариант группировки</li>
+			<li>фильтр</li>
+		</ul>
+		
+		<p>Для начала установите значение <code>withControls</code>:</p>
+		<pre>
+			<code class="js">
+$("#contacts-controls").list(
+{
+  withControls: 1   //  используем элементы управления
+});
+			</code>
+		</pre>			
+		
+		<h3>Добавление элемента</h3>
+
+		<p>Добавьте контейнер с классом <code>newItem</code> и аттрибутом <code>list: ID_вашего_списка</code>. Внутри разместите <code>contenteditable</code> с классом <code>newItemInput</code> и ссылку с классом <code>newItemBtn</code>.</p>
+		
+		<pre>
+			<code class="html">		
+&lt;div class="newItem" list="contacts-controls"&gt;
+	&lt;div class="newItemInput" contenteditable="true"&gt;&lt;/div&gt;
+	&lt;a class="newItemBtn" href="#"&gt;Добавить&lt;/a&gt;
+&lt;/div&gt;				
+			</code>
+		</pre>	
+		
+		<h3>Удаление элемента</h3>
+
+		<p>Для удаления элементов достаточно установить значение <code>withControls</code> &ndash; теперь при наведении курсора на элемент списка появится крестик для его удаления.</p>
+
+
+		
+		<h3>Группировка</h3>
+
+		<p>Добавьте контейнер с классом <code>sorting</code> и аттрибутом <code>list: ID_вашего_списка</code>. Внутри разместите <code>select</code> с классом <code>sortingSelect</code> и опциями со значения <code>1</code> и <code>2</code>.</p>		
+
+		<pre>
+			<code class="html">				
+&lt;div class="sorting" list="contacts-controls"&gt;
+	&lt;div class="sortingLabel"&gt;Сортировка&lt;/div&gt;
+	&lt;select class="sortingSelect"&gt;
+		&lt;option value=1&gt;Первое слово&lt;/option&gt;
+		&lt;option value=2&gt;Второе слово&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/div&gt;			
+			</code>
+		</pre>			
+		
+	
+
+		<h3>Фильтр</h3>
+
+		<p>Добавьте контейнер с классом <code>filter</code> и аттрибутом <code>list: ID_вашего_списка</code>. Внутри разместите <code>contenteditable</code> с классом <code>filterText</code>.</p>		
+
+		<pre>
+			<code class="html">				
+&lt;div class="filter" list="contacts-controls"&gt;
+	&lt;div class="filterLabel"&gt;Фильтр&lt;/div&gt;
+	&lt;div class="filterText" contenteditable="true"&gt;&lt;/div&gt;
+&lt;/div&gt;				
+			</code>
+		</pre>			
+		
+	
+	
+	
+	
+		
+		<!--	Стилизация		-->
+		
+		
+		
+		<h2 id="styled">Вариант стилизации</h2>	
+
+		<p>В предыдущих примерах использовалась стилизация по-умолчанию.</p>
+		<p>Можно задать свою:</p>
+
+		<pre>
+			<code class="css">
+#contacts-styled.list {
+  width: 400px;
+  height: 400px;
+  font-size: 20px;
+}
+#contacts-styled .list-subheader {
+  background-color: #3498DB;
+  color: #FFF;
+  padding-left: 20px;
+  height: 30px;
+  line-height: 30px;
+  border-top: 1px solid #867979;
+  border-bottom: 1px solid #867979;
+  box-sizing: border-box;
+}
+#contacts-styled .list-items li{
+  background-color: #F0FFFF;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  border-bottom: 1px solid #00bfff;
+}
+			</code>
+		</pre>	
+		
+		<p>Результат:</p>
+		
+		<div id="contacts-styled" class="list">
+			<ul>	
+				<li>Зимнякова Мария</li> 
+				<li>Ревягин Никанор</li>	
+				<li>Кузарин Самсон</li>	
+				<li>Саянова Альбина</li>	
+				<li>Путятин Феофан</li>	
+				<li>Рамазана Розалия</li>	
+				<li>Шаврин Варфоломей</li>	
+				<li>Южанина Юлия</li>	
+				<li>Орехов Ярослав</li>	
+				<li>Коровина Анастасия</li>	
+				<li>Мамонова Валентина</li>	
+				<li>Якунов Карл</li>	
+				<li>Чернобровин Соломон</li>	
+				<li>Греф Афанасий</li>	
+				<li>Борева Оксана</li>	
+				<li>Толбаев Прокофий</li>	
+				<li>Лужкова Ева</li>	
+				<li>Квасников Эрнест</li>	
+				<li>Гольдина Ксения</li>	
+				<li>Яимова Арина</li>	
+				<li>Старков Даниил</li>	
+				<li>Ратаева Евгения</li>	
+				<li>Танкова Ирина</li>	
+				<li>Ахвледиани Глеб</li>	
+				<li>Манина Милена</li>	
+				<li>Гусева Яна</li>	
+				<li>Янибеков Борислав</li>	
+				<li>Коваленко Галина</li>	
+				<li>Левтев Изяслав</li>	
+				<li>Кувшинова Каролина</li>	
+				<li>Авдошкина Розалия</li>	
+				<li>Хохорин Денис</li>	
+				<li>Яскина Ника</li>	
+				<li>Завражин Артём</li>	
+				<li>Нестерова Каролина</li>	
+				<li>Аристархов Лукьян</li>	
+				<li>Дудника Тамара</li>	
+				<li>Елизаров Чеслав</li>	
+				<li>Пишенина Алла</li>	
+				<li>Ярова Эмма</li>	
+				<li>Дубинкин Владислав</li>	
+				<li>Гандельман Арсений</li>	
+				<li>Рудников Даниил</li>	
+				<li>Голодяев Мефодий</li>	
+				<li>Беломестнова Зоя</li>	
+				<li>Халипов Модест</li>	
+				<li>Кирхенштейна Эмма</li>	
+				<li>Путилина Юлия</li>	
+				<li>Полунина Дарья</li>	
+				<li>Ямщиков Семён</li>	
+				<li>Хлебов Георгий</li>	
+				<li>Тихоненко Сергей</li>	
+				<li>Ерохина Любовь</li>	
+				<li>Новолодский Лев</li>	
+				<li>Холопов Прокл</li>	
+				<li>Юракин Станислав</li>	
+				<li>Яцков Максим</li>	
+				<li>Яхин Вячеслав</li>	
+				<li>Тизенгаузен Кондрат</li>	
+				<li>Янкелевич Пахом</li>	 
+			</ul>
+		</div>		
+	
+
+
+
+
+
+
+
+		<!--	Совместимость		-->
+		
+		<h2 id="compatibility">Совместимость</h2>
+		
+		<p>Протестировано в браузерах:</p>
+		<ul>
+			<li>Chrome</li>
+			<li>Firefox</li>
+			<li>Opera</li>
+			<li>IE11</li>
+			<li>Edge</li>			
+		</ul>
+	
+	</div>
+
+	
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/highlight.pack.js"></script>
+	<script src="js/jquery.list.js"></script>
+	<script src="js/main.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,124 @@
+
+.list {
+	overflow: hidden;
+	position: relative;
+}
+
+.list-wrapper {
+	height: 100%;
+	overflow-y: auto;
+	position: absolute;
+	width: 100%;	
+}
+
+.list-subheader {
+	background-color: #ccc;
+	color: #fff;
+	border-bottom: 1px solid #aaa;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.current {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	/*cursor: default;*/
+}
+
+.list-items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.list-items li{
+	background-color: #fff;
+	color: #000;
+	border-bottom: 1px solid #ddd;
+}
+
+.list-items li:last-child{
+	border-bottom: none;
+}
+
+
+
+
+
+.sorting {
+	box-sizing: border-box;	
+}
+
+	.sorting .sortingLabel{
+		display: inline-block;
+		text-align: left;
+		box-sizing: border-box;
+	}
+
+	.sorting .sortingSelect{
+		display: inline-block;
+		border: 1px solid #ccc;	
+		margin-left: 10px;
+		box-sizing: border-box;
+	}
+	
+.filter {
+	box-sizing: border-box;	
+	margin-top: 20px;	
+}
+
+	.filter .filterLabel{
+		display: inline-block;
+		text-align: left;
+		box-sizing: border-box;
+	}
+
+	.filter .filterText{
+		display: inline-block;
+		border: 1px solid #ccc;	
+		width: 200px;
+		margin-left: 10px;
+		box-sizing: border-box;
+	}
+
+.newItem {
+	box-sizing: border-box;
+	margin-top: 20px;
+}
+
+	.newItem .newItemInput{
+		width: 200px;
+		display: inline-block;
+		border: 1px solid #ccc;	
+		box-sizing: border-box;
+	}
+
+	.newItem .newItemBtn{
+		display: inline-block;
+		text-align: left;
+		padding-left: 20px;	
+		box-sizing: border-box;
+	}
+
+
+
+
+.list-items li a.remove{
+	display: none;
+	float: right;
+	margin-right: 10px;
+	text-decoration: none;
+	olor: #0094FF;
+}	
+
+.list-items li:hover a.remove{
+	display: inline-block;
+}
+	
+	
+	
+	
+

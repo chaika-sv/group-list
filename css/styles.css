@@ -1,0 +1,75 @@
+
+body {
+	font-family: 'Roboto', sans-serif;
+	width: 960px;
+	margin: 0 auto;
+}
+
+
+#toc {
+	width: 200px;
+	position: fixed;
+	float: left;
+}
+
+#toc a {
+    display: block;
+    color: #0094FF;
+	margin-bottom: 10px;
+}
+
+#toc a[title=H1] {
+    font-size: 18px;
+}
+
+#toc a[title=H2] {
+    font-size: 14px;
+}
+
+#toc a[title=H3] {
+    font-size: 10px;
+}
+
+#content {
+	width: 660px;
+	float: right;
+}
+
+.list {
+	width: 400px;
+	height: 400px;
+	margin: 30px 0 40px;
+}
+/*
+#contacts-controls.list {
+	height: 600px;
+}
+
+#contacts-controls.list .list-wrapper{
+	height: 500px;
+}
+*/
+
+
+#contacts-styled.list {
+	width: 400px;
+	height: 400px;
+	font-size: 20px;
+}
+	#contacts-styled .list-subheader {
+		background-color: #3498DB;
+		color: #FFF;
+		padding-left: 20px;
+		height: 30px;
+		line-height: 30px;
+		border-top: 1px solid #867979;
+		border-bottom: 1px solid #867979;
+		box-sizing: border-box;
+	}
+	#contacts-styled .list-items li{
+		background-color: #F0FFFF;
+		height: 50px;
+		line-height: 50px;
+		padding-left: 20px;
+		border-bottom: 1px solid #00bfff;
+	}
